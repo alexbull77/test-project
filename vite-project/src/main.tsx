@@ -14,7 +14,7 @@ import { ContextRootStore, store } from "./mst/models/stores/RepositoriesStore"
 // need to fix this so it reads from .env file
 window.process = {
     env: {
-        REACT_APP_GITHUB_TOKEN: "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",
+        REACT_APP_GITHUB_TOKEN: "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",
     },
 }
 
