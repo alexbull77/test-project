@@ -3,18 +3,18 @@ import {
     ApolloProvider,
     InMemoryCache,
     createHttpLink,
-    gql,
 } from "@apollo/client"
 import { setContext } from "@apollo/client/link/context"
 import React from "react"
 import ReactDOM from "react-dom/client"
-import App from "./App"
+import { App } from "./App"
 import "./index.css"
+import { ContextRootStore, store } from "./mst/models/stores/RepositoriesStore"
 
 // need to fix this so it reads from .env file
 window.process = {
     env: {
-        REACT_APP_GITHUB_TOKEN: "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",
+        REACT_APP_GITHUB_TOKEN: "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",
     },
 }
 
@@ -46,7 +46,9 @@ export const client = new ApolloClient({
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
         <ApolloProvider client={client}>
-            <App />
+            <ContextRootStore.Provider value={store}>
+                <App />
+            </ContextRootStore.Provider>
         </ApolloProvider>
     </React.StrictMode>
 )
